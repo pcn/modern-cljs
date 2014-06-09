@@ -112,6 +112,10 @@ clojure-ish. First we want to remove any CLJS/JS interop call by using
 function as follows.
 
 ```clojure
+(ns modern-cljs.login
+  (:use [domina :only [by-id value]]
+        [domina.events :only [listen!]]))
+...
 (defn ^:export init []
   (if (and js/document
            (aget js/document "getElementById"))
